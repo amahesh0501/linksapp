@@ -1,0 +1,39 @@
+<%= render 'pages/home' unless user_signed_in? %>
+<% if user_signed_in? %>
+<div id="pins" class="transitions-enabled">
+  <div class="row">
+  <div class="alert alert-info alert-indent">
+  <div class="pull-right"> <button type="button" class="close" aria-hidden="true">&times;</button> </div>
+  <p>You are seeing all of the links posted by your Facebook friends below. To see more links, connect with Google and Twitter.</p>
+  <br>
+  <img src="https://cache.addthiscdn.com/www/131220125551/style/images/btn-login-google.png"/> &nbsp;&nbsp;<img src="https://cache.addthiscdn.com/www/131220125551/style/images/btn-login-twitter.png" />
+  </div>
+              <% @pins.each do |pin| %>
+              <div class="col-lg-4">
+                <div class="video-card">
+                  <div>
+                          <div class="video-card-image"><%= link_to image_tag(pin.image.url(:medium)), pin %></div>
+                          <br>
+                          <p class="video-text"> <%= pin.description %></p>
+                          <p class="video-text"><img height="18" width="18" src="http://olliandpop.com/skin/frontend/default/olliandpop/images/fbicon.jpg"/> <strong><%= pin.user.name if pin.user %></strong>&nbsp;<span class="date-small">Dec 20</span></p>
+
+                  </div>
+                  &nbsp;
+                </div>
+              </div>
+              <% end %>
+
+
+
+
+<div class="center">
+  <center><%= will_paginate @posts, renderer: BootstrapPagination::Rails %></center>
+  <br>
+</div>
+<% end %>
+<script>
+$(".video-card").click(function(){
+     window.location=$(this).find("a").attr("href"); 
+     return false;
+});
+</script>
