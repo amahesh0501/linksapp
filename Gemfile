@@ -17,7 +17,7 @@ gem 'masonry-rails', '~> 0.2.0'
 gem 'will_paginate', '~> 3.0'
 gem 'will_paginate-bootstrap'
 gem 'dotenv-rails'
-gem 'omniauth-twitter'
+gem 'omniauth-twitter', :github => 'arunagw/omniauth-twitter'
 
 group :development, :test do
 	gem 'sqlite3'
