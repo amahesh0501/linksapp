@@ -21,7 +21,7 @@
                     <p>
                       New user added: Jane Smith
                     </p></a>
-                    
+
                   </li>
                   <li><a href="#">
                     <div class="notifications label label-info">
@@ -30,7 +30,7 @@
                     <p>
                       Sales targets available
                     </p></a>
-                    
+
                   </li>
                   <li><a href="#">
                     <div class="notifications label label-info">
@@ -39,7 +39,7 @@
                     <p>
                       New performance metric added
                     </p></a>
-                    
+
                   </li>
                   <li><a href="#">
                     <div class="notifications label label-info">
@@ -48,11 +48,11 @@
                     <p>
                       New growth data available
                     </p></a>
-                    
+
                   </li>
                 </ul>
               </li>
-              
+
               <li class="dropdown user hidden-xs"><a data-toggle="dropdown" class="dropdown-toggle" href="#">
                 <img width="34" height="34" src="images/avatar-male.jpg" />Aditya Mahesh<b class="caret"></b></a>
                 <ul class="dropdown-menu">
@@ -62,10 +62,12 @@
               </li>
               <% else %>
                    <li><%= link_to "Sign in", new_user_session_path %></li>
-                <ul class="dropdown-menu">
+                   <li><%= link_to "Sign in with Twitter", user_omniauth_authorize_path(:twitter) %></li>
+
+                <!--<ul class="dropdown-menu">
                   <li><%= link_to "Sign in", new_user_session_path %></li>
                 </ul>
-                </li>
+                </li>-->
               <% end %>
 
             </ul>
